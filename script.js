@@ -5,7 +5,7 @@ const translations = {
         nav_about: "O nama",
         nav_contact: "Kontakt",
         hero_badge: "Zenica, BA",
-        hero_title: "We Create Websites <br> & Develop Apps",
+        hero_title: "Pravimo Web Stranice <br> & Razvijamo Aplikacije",
         hero_subtitle: "PROFESIONALNI WEB I APP RAZVOJ",
         hero_btn_start: "Započni Projekt",
         hero_btn_more: "Saznaj Više",
@@ -16,9 +16,9 @@ const translations = {
         service_app_desc: "Razvoj nativnih i hibridnih mobilnih aplikacija koje pružaju vrhunsko korisničko iskustvo.",
         service_sec: "Kripto & Sigurnost",
         service_sec_desc: "Implementacija naprednih sistema enkripcije i sigurnosnih protokola za maksimalnu privatnost.",
-        prod_label: "Featured Product",
+        prod_label: "Istaknuti Proizvod",
         prod_title: "Custom Cryptic Chat",
-        prod_benefit: "No SIM, no E-mail, no registration, Ultimate privacy",
+        prod_benefit: "Bez SIM kartice, bez E-maila, bez registracije, Maksimalna privatnost",
         prod_desc: "Pravimo Kriptovane chatove za direktnu WebRTC P2P komunikaciju, bez forenzičkih tragova. Aplikacija radi isključivo u RAM memoriji, koristeći AES-256-GCM enkripciju.",
         prod_f1: "AES-256-GCM Enkripcija",
         prod_f2: "ECDH Ephemeral ključevi",
@@ -73,21 +73,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLang = 'bs';
     const langToggleBtn = document.getElementById('lang-toggle');
 
+    const updateText = (lang) => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                if (el.tagName.toLowerCase() === 'h1') {
+                    el.innerHTML = translations[lang][key];
+                } else {
+                    el.textContent = translations[lang][key];
+                }
+            }
+        });
+    };
+
+    // Apply default language text on load
+    updateText(currentLang);
+    if (langToggleBtn) {
+        langToggleBtn.textContent = 'EN'; // the button text should show the opposite language to switch to
+    }
+
     if (langToggleBtn) {
         langToggleBtn.addEventListener('click', () => {
             currentLang = currentLang === 'bs' ? 'en' : 'bs';
             langToggleBtn.textContent = currentLang === 'bs' ? 'EN' : 'BS';
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    if (el.tagName.toLowerCase() === 'h1') {
-                        el.innerHTML = translations[currentLang][key]; // For handling the <br> correctly
-                    } else {
-                        el.textContent = translations[currentLang][key];
-                    }
-                }
-            });
+            updateText(currentLang);
         });
     }
 
