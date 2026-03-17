@@ -27,6 +27,10 @@ const translations = {
         prod_btn: "Zatraži Demo",
         about_title: "Vaš partner u digitalnom svijetu",
         about_desc: "AppDev 387 je agencija bazirana u Zenici, Bosna i Hercegovina, posvećena kreiranju vrhunskih digitalnih rješenja. Naš fokus je na spoju inovativnog dizajna, robusne funkcionalnosti i beskompromisne sigurnosti.",
+        contact_title: "Kontaktirajte Nas",
+        contact_email_label: "Email:",
+        contact_phone_label: "Telefon:",
+        contact_btn: "Pošalji Email",
         footer_copy: "© 2026 AppDev 387. Sva prava zadržana."
     },
     en: {
@@ -57,6 +61,10 @@ const translations = {
         prod_btn: "Request Demo",
         about_title: "Your partner in the digital world",
         about_desc: "AppDev 387 is an agency based in Zenica, Bosnia and Herzegovina, dedicated to creating premium digital solutions. Our focus is on combining innovative design, robust functionality, and uncompromising security.",
+        contact_title: "Contact Us",
+        contact_email_label: "Email:",
+        contact_phone_label: "Phone:",
+        contact_btn: "Send Email",
         footer_copy: "© 2026 AppDev 387. All rights reserved."
     }
 };
