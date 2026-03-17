@@ -102,6 +102,14 @@ nav .container {
     align-items: center;
     gap: 2rem;
     list-style: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
 
 .nav-links a {
